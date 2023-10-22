@@ -1,7 +1,6 @@
 public class SportMercedes extends DecoratorMercedes{
     public SportMercedes(MercedesInterface mercedes){
         super(mercedes);
-
     }
 
     @Override
