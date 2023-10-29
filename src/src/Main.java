@@ -1,6 +1,6 @@
 
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         MercedesInterface BasicMercedes = new BasicMercedes();
         BasicMercedes.ChooseMercedes();
@@ -23,15 +23,22 @@ public class Main {
         EuroSocket euroSocket = new SocketAdapter(americanSocket);
         carsRadio.ListenToMusic(euroSocket);
 
+        System.out.println("------------------------------------------");
 
 
+        CarHandsFabric carHandsFabric = createCarByCountryHand("Germany");
+        CarHand carHand = carHandsFabric.CarByHand();
+        carHand.createCarByHand();
 
-
-
-
-
-
-
-
+    }
+    static CarHandsFabric createCarByCountryHand(String country){
+        if (country.equalsIgnoreCase("England")){
+            return new SectorA();
+        } else if (country.equalsIgnoreCase("Germany")) {
+            return new SectorB();
+        }
+        else {
+            throw new RuntimeException("Country's Driving Side Unknown");
+        }
     }
 }
